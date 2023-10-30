@@ -1,4 +1,7 @@
 services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
 
   Training\Bundle\UserNamingBundle\Provider\EntityNameProviderDecorator:
     decorates: oro_locale.entity_name_provider
@@ -7,3 +10,5 @@ services:
   Training\Bundle\UserNamingBundle\EventListener\UserViewNamingListener:
     tags:
       - { name: kernel.event_listener, event: oro_ui.scroll_data.before.userView, method: onUserView }
+
+  Training\Bundle\UserNamingBundle\Controller\UserNamingTypeController: ~
