@@ -1,12 +1,16 @@
-training.user_naming.full_formatted_name: 'Full Formatted Name'
 
 oro:
+    grid:
+        action:
+            view: 'See naming type details'
+            view_user: 'See user details'
     user:
         type_of_naming:
             label: 'Type of Naming'
 
 training:
     usernaming:
+        full_formatted_name: 'Full Formatted Name'
         usernamingtype:
             entity_label: 'User Naming Type'
             entity_plural_label: 'User Naming Types'
@@ -15,3 +19,7 @@ training:
                 label: 'Title'
             format:
                 label: 'Format'
+        sections:
+            general: 'General Data'
+            related_users: 'Users using this Naming Type'
+        full_formatted_name_example: 'Full formatted name Example'

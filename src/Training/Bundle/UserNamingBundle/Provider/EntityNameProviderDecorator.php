@@ -8,9 +8,10 @@ use Training\Bundle\UserNamingBundle\Entity\UserNamingType;
 
 class EntityNameProviderDecorator implements EntityNameProviderInterface
 {
-    public function __construct(private EntityNameProviderInterface $originalProvider)
-    {
-
+    public function __construct(
+        private EntityNameProviderInterface $originalProvider,
+        private FullNameProvider $fullNameProvider
+    ) {
     }
 
     /**
@@ -19,7 +20,7 @@ class EntityNameProviderDecorator implements EntityNameProviderInterface
     public function getName($format, $locale, $entity): string
     {
         if ($entity instanceof User) {
-            /** @var UserNamingType|null $namingType */
+            /** @var UserNamingType $namingType */
             $namingType = $entity->get('typeOfNaming');
             if ($namingType) {
                 return $this->getFullUserName($entity, $namingType->getFormat());
@@ -46,15 +47,6 @@ class EntityNameProviderDecorator implements EntityNameProviderInterface
      */
     private function getFullUserName(User $user, string $format): string
     {
-        return strtr(
-            $format,
-            [
-                'PREFIX' => $user->getNamePrefix(),
-                'FIRST' => $user->getFirstName(),
-                'MIDDLE' => $user->getMiddleName(),
-                'LAST' => $user->getLastName(),
-                'SUFFIX' => $user->getNameSuffix(),
-            ]
-        );
+        return $this->fullNameProvider->getFullUserName($user, $format);
     }
 }

@@ -1,14 +1,24 @@
 services:
-  _defaults:
-    autowire: true
-    autoconfigure: true
+    _defaults:
+        autowire: true
+        autoconfigure: true
 
-  Training\Bundle\UserNamingBundle\Provider\EntityNameProviderDecorator:
-    decorates: oro_locale.entity_name_provider
-    arguments: [ '@.inner' ]
+    Training\Bundle\UserNamingBundle\Provider\EntityNameProviderDecorator:
+        decorates: oro_locale.entity_name_provider
+        arguments: [ '@.inner' ]
 
-  Training\Bundle\UserNamingBundle\EventListener\UserViewNamingListener:
-    tags:
-      - { name: kernel.event_listener, event: oro_ui.scroll_data.before.userView, method: onUserView }
+    Training\Bundle\UserNamingBundle\EventListener\UserViewNamingListener:
+        tags:
+            - { name: kernel.event_listener, event: oro_ui.scroll_data.before.userView, method: onUserView }
 
-  Training\Bundle\UserNamingBundle\Controller\UserNamingTypeController: ~
+    Training\Bundle\UserNamingBundle\Controller\UserNamingTypeController: ~
+
+    Training\Bundle\UserNamingBundle\Provider\FullNameProvider: ~
+
+    Training\Bundle\UserNamingBundle\Twig\NamingTypeExtension:
+        tags:
+            - { name: twig.extension }
+
+    Training\Bundle\UserNamingBundle\Twig\FullNameExample:
+        tags:
+            - { name: twig.runtime }
