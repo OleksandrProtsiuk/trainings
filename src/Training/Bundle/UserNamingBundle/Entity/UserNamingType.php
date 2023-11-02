@@ -34,41 +34,41 @@ class UserNamingType implements ExtendEntityInterface
     use ExtendEntityTrait;
 
     /**
-     * @var int
+     * @var int|null
      *
      * @ORM\Id
      * @ORM\Column(type="integer", name="id")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private int $id;
+    private ?int $id = null;
 
     /**
-     * @var string
+     * @var string|null
      *
      * @ORM\Column(type="string", length=64, nullable=false)
      */
-    private string $title;
+    private ?string $title = null;
 
     /**
-     * @var string
+     * @var string|null
      * Allowed placeholders are: PREFIX, FIRST, MIDDLE, LAST, SUFFIX
      *
      * @ORM\Column(type="string", length=255, nullable=false)
      */
-    private string $format;
+    private ?string $format = null;
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->title;
     }
@@ -82,9 +82,9 @@ class UserNamingType implements ExtendEntityInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getFormat(): string
+    public function getFormat(): ?string
     {
         return $this->format;
     }

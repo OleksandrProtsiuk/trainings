@@ -1,0 +1,14 @@
+Training\Bundle\UserNamingBundle\Entity\UserNamingType:
+    properties:
+        title:
+            - Length:
+                  min: 3
+                  max: 64
+                  allowEmptyString: false
+            - NotBlank: ~
+        format:
+            - Length:
+                  min: 3
+                  max: 255
+                  allowEmptyString: false
+            - NotBlank: ~
