@@ -1,5 +1,6 @@
 datagrids:
     user-naming-types-grid:
+        acl_resource: user_naming_type_view
         source:
             type: orm
             query:
@@ -43,6 +44,7 @@ datagrids:
                     type: string
 
     user-naming-types-related-users:
+        acl_resource: oro_user_user_view
         source:
             type: orm
             query:

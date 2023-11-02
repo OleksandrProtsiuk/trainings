@@ -23,3 +23,7 @@ training:
             general: 'General Data'
             related_users: 'Users using this Naming Type'
         full_formatted_name_example: 'Full formatted name Example'
+        security:
+            user_naming_info_view:
+                label: 'View full name formatting'
+                description: 'View full name formatting where it is applied'
