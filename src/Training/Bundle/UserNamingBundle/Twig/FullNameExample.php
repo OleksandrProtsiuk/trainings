@@ -21,13 +21,6 @@ class FullNameExample implements RuntimeExtensionInterface
      */
     public function getFullNameExample(string $format): string
     {
-        $user = new User();
-        $user->setNamePrefix('Mr.')
-            ->setFirstName('Homer')
-            ->setMiddleName('Jay')
-            ->setLastName('Simpson')
-            ->setNameSuffix('Jr.');
-
-        return $this->fullNameProvider->getFullUserName($user, $format);
+        return $this->fullNameProvider->getFullUserNameExample($format);
     }
 }
